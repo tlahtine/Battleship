@@ -36,12 +36,13 @@ int main(){
         }
         std::cout << "Fire: ";
         std::cin >> square;
+        square[0] = toupper(square[0]);
         if(player.hit(square)){
             result = "HIT!";
             std::string hitShip = getShip(ships, square);
             ships[hitShip].life--;
             if(ships[hitShip].life == 0){
-                result += hitShip + " sunk!";
+                result += " " + hitShip + " sunk!";
                 ships[hitShip].markShipSunk(player);
                 player.shipCount--;
             }
